@@ -1,0 +1,40 @@
+.wrapper {}
+
+.productName {
+  margin-top: 35px;
+  margin-bottom: 25px;
+}
+
+.box {
+  padding: 5px;
+  background-color: #fff;
+box-shadow: 0 .05rem .01rem rgba(75,75,90,.075);
+}
+
+.pdpPhoto {
+margin-right: 5px;
+margin-bottom: 5px;
+}
+
+.pdpDesc {
+  margin-top: 5px;
+}
+
+.listGroup,
+.listGroup strong {
+  margin-right: 5px
+}
+
+.pdpLink {
+  margin-top:20px;
+}
+
+.pdpRelatedCard {
+  padding-top: 10px;
+}
+
+.pdpRelatedCopy {
+  padding: 0;
+  line-height: 1.15rem;
+  font-size: 16px;
+}
