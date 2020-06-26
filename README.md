@@ -1,3 +1,9 @@
+# Nextjs Auth0 Vercel Ecommerce Tutorial
+
+### Thank you to our sponor!
+This open-source project is proudly [hosted on Vercel](https://www.vercel.com).
+
+
 # Basic Example
 
 This example shows the basic usage of the library with the following scenarios:
