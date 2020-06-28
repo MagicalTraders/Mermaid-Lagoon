@@ -2,39 +2,39 @@ import React from 'react';
 import styled from 'styled-components';
 import Toolbar from '@material-ui/core/Toolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
+// import Typography from '@material-ui/core/Typography';
+// import { withStyles } from '@material-ui/core/styles';
 
 import Layout, {
-  getCollapseBtn,
+  // getCollapseBtn,
   getContent,
-  getDrawerSidebar,
-  getFooter,
+  // getDrawerSidebar,
+  // getFooter,
   getHeader,
   getInsetContainer,
-  getInsetFooter,
-  getInsetSidebar,
-  getSidebarContent,
+  // getInsetFooter,
+  // getInsetSidebar,
+  // getSidebarContent,
   getSidebarTrigger,
   Root,
 } from '@mui-treasury/layout';
 
 import {
-  ContentContainer,
+  // ContentContainer,
   HeaderContainer,
-  NavHeaderContainer,
-  NavContentContainer,
+  // NavHeaderContainer,
+  // NavContentContainer,
   FooterContainer,
 } from '../../mui';
 
 const Header = getHeader(styled);
-const DrawerSidebar = getDrawerSidebar(styled);
+// const DrawerSidebar = getDrawerSidebar(styled);
 const SidebarTrigger = getSidebarTrigger(styled);
-const SidebarContent = getSidebarContent(styled);
-const CollapseBtn = getCollapseBtn(styled);
+// const SidebarContent = getSidebarContent(styled);
+// const CollapseBtn = getCollapseBtn(styled);
 const Content = getContent(styled);
 const InsetContainer = getInsetContainer(styled);
-const InsetSidebar = getInsetSidebar(styled);
+// const InsetSidebar = getInsetSidebar(styled);
 
 const scheme = Layout();
 
@@ -79,7 +79,7 @@ scheme.configureInsetSidebar((builder) => {
 const Blog = ({ children }) => {
   return (
     <Root scheme={scheme}>
-      {({ state: { sidebar } }) => (
+      {({ state: {} }) => (
         <>
           <CssBaseline />
           <Header>
