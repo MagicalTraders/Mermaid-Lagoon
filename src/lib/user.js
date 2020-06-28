@@ -1,7 +1,12 @@
+/**
+ * Disable triggering ESLint rules for a vendor-only file
+ * TO-DO: bring this file up to project code standards
+ */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import fetch from 'isomorphic-unfetch';
 
-// Use a global to save the user, so we don't have to fetch it again after page navigations
+// Use a global to save the user so we don't have to fetch it again after page navigations
 let userState;
 
 const User = React.createContext({ user: null, loading: false });
@@ -24,7 +29,7 @@ export const UserProvider = ({ value, children }) => {
     if (!userState && user) {
       userState = user;
     }
-  }, []);
+  }, [user]);
 
   return <User.Provider value={value}>{children}</User.Provider>;
 };
@@ -54,7 +59,7 @@ export const useFetchUser = () => {
     return () => {
       isMounted = false;
     };
-  }, [userState]);
+  }, []);
 
   return data;
 };

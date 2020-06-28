@@ -7,7 +7,6 @@ const withSvgr = require('next-svgr');
  * Assign branchs-specific variables at build time
  */
 const gitBranch = process.env.VERCEL_GITHUB_COMMIT_REF;
-let databaseByBranch;
 let domainByBranch;
 
 switch (gitBranch) {
