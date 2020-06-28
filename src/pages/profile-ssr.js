@@ -1,16 +1,20 @@
 import React from 'react';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
 
-import Layout from '../components/sitewide/Layout';
-import withAuth from '../components/auth/with-auth';
+import Layout from '../components/shared/Layout';
+import withAuth from '../components/helpers/WithAuth';
 
 const Profile = ({ user }) => (
   <Layout user={user}>
-    <h1>Profile</h1>
+    <Container maxWidth="sm">
+      <Typography variant="h4" component="h1" gutterBottom>
+        Profile (SSR)
+      </Typography>
 
-    <div>
       <h3>Profile (server rendered)</h3>
       <pre>{JSON.stringify(user, null, 2)}</pre>
-    </div>
+    </Container>
   </Layout>
 );
 

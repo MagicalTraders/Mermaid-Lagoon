@@ -1,5 +1,4 @@
-.next
-.vercel
-node_modules
 package-lock.json
 yarn.lock
+.next
+node_modules/
