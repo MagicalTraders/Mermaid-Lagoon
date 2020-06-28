@@ -7,7 +7,17 @@
     "start": "next start",
     "build": "next build",
     "lint": "eslint . --ext .js --fix",
+<<<<<<< HEAD
     "test:all": "cypress run"
+=======
+    "test": "jest",
+    "test:all": "jest && cypress run",
+    "test:ci": "jest --ci",
+    "test:coverage": "jest --coverage",
+    "test:dev": "jest --watch",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
+>>>>>>> fix: package.json, yarn.lock & .snyk to reduce vulnerabilities (#4)
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^0.13.0",
@@ -23,7 +33,14 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+<<<<<<< HEAD
     "styled-components": "^5.1.1"
+=======
+    "react-feather": "^2.0.8",
+    "react-structured-data": "^0.0.14",
+    "reactstrap": "^8.4.1",
+    "snyk": "^1.339.2"
+>>>>>>> fix: package.json, yarn.lock & .snyk to reduce vulnerabilities (#4)
   },
   "devDependencies": {
     "@testing-library/cypress": "^6.0.0",
@@ -50,6 +67,12 @@
     "lint-staged": "^10.2.9",
     "prettier": "^2.0.5",
     "sass": "^1.26.8",
+<<<<<<< HEAD
     "serve": "^11.1.0"
   }
+=======
+    "yarn": "^1.22.4"
+  },
+  "snyk": true
+>>>>>>> fix: package.json, yarn.lock & .snyk to reduce vulnerabilities (#4)
 }
