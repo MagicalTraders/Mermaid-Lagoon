@@ -11,7 +11,9 @@
     "test:all": "jest && cypress run",
     "test:ci": "jest --ci",
     "test:coverage": "jest --coverage",
-    "test:dev": "jest --watch"
+    "test:dev": "jest --watch",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "author": "",
   "license": "MIT",
@@ -26,7 +28,8 @@
     "react-dom": "^16.13.1",
     "react-feather": "^2.0.8",
     "react-structured-data": "^0.0.14",
-    "reactstrap": "^8.4.1"
+    "reactstrap": "^8.4.1",
+    "snyk": "^1.339.2"
   },
   "devDependencies": {
     "@storybook/addon-actions": "5.3.19",
@@ -58,5 +61,6 @@
     "prettier": "^2.0.5",
     "sass": "^1.26.8",
     "yarn": "^1.22.4"
-  }
+  },
+  "snyk": true
 }
