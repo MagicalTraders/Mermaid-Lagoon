@@ -28,7 +28,7 @@
     "react-dom": "^16.13.1",
     "react-feather": "^2.0.8",
     "react-structured-data": "^0.0.14",
-    "reactstrap": "^8.4.1",
+    "reactstrap": "^8.5.0",
     "snyk": "^1.339.3"
   },
   "devDependencies": {
