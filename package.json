@@ -29,7 +29,7 @@
     "react-feather": "^2.0.9",
     "react-structured-data": "^0.0.14",
     "reactstrap": "^8.9.0",
-    "snyk": "^1.440.1"
+    "snyk": "^1.440.4"
   },
   "devDependencies": {
     "@storybook/addon-actions": "6.1.15",
