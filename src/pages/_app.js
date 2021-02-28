@@ -1,41 +1,40 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+import { UserProvider } from '@auth0/nextjs-auth0';
 import Head from 'next/head';
-import App from 'next/app';
-import { createMuiTheme } from '@material-ui/core/styles';
-import { ThemeProvider } from '@material-ui/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import PropTypes from 'prop-types';
 
-import { Provider } from '../lib/context';
+import SEO from '../../next-seo.config';
 
-class MyApp extends App {
-  render() {
-    const { Component, pageProps } = this.props;
-    const theme = createMuiTheme({
-      palette: {
-        background: {
-          default: '#EEE',
-        },
-        primary: {
-          main: '#673ab7',
-        },
-      },
-    });
+const MyApp = ({ Component, pageProps }) => {
+  // If you've used `withAuth`, pageProps.user can pre-populate the hook
+  // if you haven't used `withAuth`, pageProps.user is undefined so the hook
+  // fetches the user from the API routes
+  const { user } = pageProps;
+  // Remove the server-side injected CSS.
+  useEffect(() => {
+    const jssStyles = document.querySelector('#jss-server-side');
+    if (jssStyles) {
+      jssStyles.parentElement.removeChild(jssStyles);
+    }
+  }, []);
 
-    return (
-      <>
-        <Head>
-          <title>Nextjs Minimal App</title>
-        </Head>
-        <ThemeProvider theme={theme}>
-          <CssBaseline>
-            <Provider>
-              <Component {...pageProps} />
-            </Provider>
-          </CssBaseline>
-        </ThemeProvider>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <Head>
+        <meta content="minimum-scale=1, initial-scale=1, width=device-width" name="viewport" />
+      </Head>
+
+      <UserProvider user={user}>
+        <Component {...pageProps} />
+      </UserProvider>
+    </>
+  );
+};
+
+MyApp.propTypes = {
+  Component: PropTypes.elementType.isRequired,
+  pageProps: PropTypes.object.isRequired,
+};
 
 export default MyApp;

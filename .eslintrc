@@ -1,56 +1,95 @@
 {
+  "parser": "babel-eslint",
   "env": {
-    "browser": true,
-    "commonjs": false,
-    "es6": true,
-    "node": true
+    "es6": true
   },
   "extends": [
     "airbnb",
-    "plugin:cypress/recommended",
+    "airbnb/hooks",
+    "plugin:import/errors",
+    "plugin:import/warnings",
     "plugin:jsx-a11y/recommended",
-    "plugin:prettier/recommended",
-    "plugin:security/recommended",
-    "plugin:testing-library/react",
-    "prettier/react"
+    "plugin:jsx-control-statements/recommended",
+    "plugin:security/recommended"
   ],
   "plugins": [
-    "cypress",
     "jsx-a11y",
     "no-secrets",
-    "prettier",
+    "jsx-control-statements",
     "react-hooks",
     "react",
     "security",
     "simple-import-sort",
-    "testing-library"
+    "sort-destructure-keys",
+    "sort-keys-fix"
   ],
   "rules": {
+    "arrow-body-style": ["error", "as-needed"],
     "consistent-return": 0,
-    "import/no-extraneous-dependencies": 0,
+    "global-require": 0, // Used by React Native.
+    "import/no-extraneous-dependencies": 0, // monorepo setup
     "jsx-a11y/anchor-is-valid": "warn",
-    "prettier/prettier": "error",
-    "react/jsx-props-no-spreading": 0,
-    "react/jsx-filename-extension": [
-      1,
-      {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
-      }
-    ],
+    "jsx-a11y/no-autofocus": "warn",
+    "key-spacing": ["error", { "align": "value" }],
+    "max-len": [2, {"code": 90, "tabWidth": 2, "ignoreUrls": true}],
+    "no-nested-ternary": "error",
+    "no-param-reassign": ["error", { "props": false }],
+    "no-return-assign": "off", // airbnb use error, handy for react ref assign.
+    "no-underscore-dangle": 0, // disallows "private" properties
+    "operator-linebreak": ["error", "after"], // aibnb is disabling this rule
+    "react/forbid-prop-types": ["error", { "forbid": ["any"] }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+    "react/jsx-max-props-per-line": ["error", {"maximum": 3}], // airbnb is disabling this rule
+    "react/jsx-sort-props": [2, { "callbacksLast": true, "shorthandLast": true }],
+    "react/no-direct-mutation-state": "error", // airbnb is disabling this rule
+    "react/require-default-props": "warn",
     "react/prop-types": "off",
-    "max-len": [
-      2,
+    "sort-destructure-keys/sort-destructure-keys": ["warn", {"caseSensitive": false}],
+    "sort-keys-fix/sort-keys-fix": "warn",
+    "sort-vars": ["error", { "ignoreCase": true }],
+
+    // Import ordering
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
+    "import/order": [
+      "error",
       {
-        "code": 90,
-        "tabWidth": 2,
-        "ignoreUrls": true
+        "groups": [
+          "builtin",
+          "external",
+          "internal"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
       }
     ]
   },
   "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@/components", "./src/components"],
+          ["@/hooks", "./src/hooks"],
+          ["@/json", "./src/json"],
+          ["@/lib", "./src/lib"],
+          ["@/logic", "./src/logic"],
+          ["@/tmpstore", "./tmpstore"]
+        ],
+        "extensions": [".ts", ".js", ".jsx", ".json"]
+      }
+    },
     "react": {
       "version": "detect"
     }
