@@ -6,7 +6,7 @@ import { fetchAPI } from '@/lib/cms/graphapi';
 export async function getAllStories(preview) {
   const gqlQuery = (startAt) => `
       query Story($where: JSON){
-        stories(sort: "name:asc", limit: 1000, where: $where, start:${startAt}) {
+        stories(sort: "name:asc", limit: 100, where: $where, start:${startAt}) {
           name
           slug
           studio

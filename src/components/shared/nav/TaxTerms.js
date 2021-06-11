@@ -96,9 +96,9 @@ export default function CustomizedMenus() {
           Categories & Tags
         </StyledSubMenuHeader>
 
-        <Link href="/cast"><MenuItem onClick={handleClose}>Cast</MenuItem></Link>
-        <Link href="/stories"><MenuItem onClick={handleClose}>Stories</MenuItem></Link>
-        <Link href="/brands"><MenuItem onClick={handleClose}>Brands</MenuItem></Link>
+        <Link href="/cast"><a><MenuItem onClick={handleClose}>Cast</MenuItem></a></Link>
+        <Link href="/stories"><a><MenuItem onClick={handleClose}>Stories</MenuItem></a></Link>
+        <Link href="/brands"><a><MenuItem onClick={handleClose}>Brands</MenuItem></a></Link>
 
         <StyledMenuItem>
           <ListItemIcon>

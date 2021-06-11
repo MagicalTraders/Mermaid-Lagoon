@@ -45,5 +45,7 @@ export async function getAStory(slug, preview) {
   };
 
   const data = await fetchAPI(gqlQuery, gqlQueryParams);
+  // console.log(`getAStory ${slug}`, data)
+
   return data;
 }

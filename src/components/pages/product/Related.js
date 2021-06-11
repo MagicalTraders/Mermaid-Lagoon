@@ -39,7 +39,7 @@ export default function ChipsArray({ chipData, label }) {
         <Box className={classes.root}>
           {chipData.map((data) => {
             let icon;
-            console.log('chip data', data);
+            // console.log('chip data', data);
 
             if (data.label === 'React') {
               icon = <TagFacesIcon />;

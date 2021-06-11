@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { useUser } from '@auth0/nextjs-auth0';
 import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
 import IconButton from '@material-ui/core/IconButton';
@@ -67,7 +66,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Header = () => {
-  const { user } = useUser();
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -126,7 +124,7 @@ const Header = () => {
               />
             </div>
 
-            {user ? (
+            {/* {user ? (
               <>
                 <li>
                   <a data-testid="logout" href="/api/auth/logout">
@@ -156,7 +154,7 @@ const Header = () => {
                   </a>
                 </li>
               </>
-            )}
+            )} */}
           </Toolbar>
         </Container>
       </AppBar>

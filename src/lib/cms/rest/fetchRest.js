@@ -1,9 +1,6 @@
 export function getStrapiURL(path) {
-  return `${process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337'
-  }${path}`;
+  return `${process.env.maroonersRockBase}${path}`;
 }
-
-// Helper to make GET requests to Strapi
 
 export async function fetchAPI(path, options = {}) {
   const defaultOptions = {
@@ -15,7 +12,9 @@ export async function fetchAPI(path, options = {}) {
     ...defaultOptions,
     ...options,
   };
-  const requestUrl = getStrapiURL(path);
+  const requestUrl = getStrapiURL(`${path}`);
+  console.log('requestUrl', requestUrl);
+
   const response = await fetch(requestUrl, mergedOptions);
 
   if (!response.ok) {
@@ -27,9 +26,12 @@ export async function fetchAPI(path, options = {}) {
 }
 
 export async function getPageData(slug, preview = false) {
+  const cmsToken = process.env.maroonersRockToken;
+  const isDraft = preview ? '&status=draft' : '';
+
   // Find the pages that match this slug
   const pagesData = await fetchAPI(
-    `/pages?slug=${slug}&status=published${preview ? '&status=draft' : ''}`,
+    `/pages?slug=${slug}&token=${cmsToken}&status=published${isDraft}`,
   );
 
   // Make sure we found something, otherwise return null

@@ -41,6 +41,8 @@ const Comment = ({ morePosts, post, preview = null }) => {
   const classes = useStyles();
 
   const RelatedChips = ({ postData }) => {
+    console.log('postData', postData)
+
     const {
       attractions, cast, chapters, destinations, entertainment, events,
       food_services, locations, lodgings, stories, tags, taxterms,
@@ -58,9 +60,9 @@ const Comment = ({ morePosts, post, preview = null }) => {
           <Related chipData={chapters} label="Story Chapters" />
         </If>
         <Divider />
-        <If condition={Array.isArray(attractions) && attractions.length}>
+        {/* <If condition={Array.isArray(attractions) && attractions.length}>
           <Related chipData={attractions} label="attractions" />
-        </If>
+        </If> */}
         <If condition={Array.isArray(destinations) && destinations.length}>
           <Related chipData={destinations} label="destinations" />
         </If>
@@ -115,7 +117,7 @@ const Comment = ({ morePosts, post, preview = null }) => {
           title: 'Open Graph Title',
           url:   'https://www.canonicalurl.ie/',
         }}
-        title="Page Meta Title"
+        title={`${post.name} on Magical Traders`}
       />
 
       <ArticleJsonLd
@@ -141,21 +143,17 @@ const Comment = ({ morePosts, post, preview = null }) => {
           <Grid spacing={6} container>
             <Grid xs={5} item>
               <Grid spacing={1} container>
-                {post && post.pdps.map((term, i) => (
-                  <>
-                    {term.photos.map((photos, i) => (
-                      <Grid xs={6} item>
-                        <Image
-                          alt="Picture of the author"
-                          height={300}
-                          key={i}
-                          src={photos.url}
-                          width={300}
-                        />
-                      </Grid>
-                    ))}
-                  </>
-                ))}
+                  {post.pdps[0].photos.map((photos, i) => (
+                    <Grid xs={6} item key={i}>
+                      <Image
+                        alt="Picture of the author"
+                        height={300}
+                        key={i}
+                        src={photos.url}
+                        width={300}
+                      />
+                    </Grid>
+                  ))}
               </Grid>
             </Grid>
 
@@ -164,14 +162,11 @@ const Comment = ({ morePosts, post, preview = null }) => {
               <p className={styles.pdpPhoto}>JSON-LD</p>
 
               {post && post.pdps.map((term, i) => (
-                <>
                   <p key={i}>
                     {term.desc_full}
                   </p>
-
-                </>
               ))}
-              <RelatedChips postData={post} />
+              {/* <RelatedChips postData={post} /> */}
             </Grid>
           </Grid>
 
@@ -183,15 +178,15 @@ const Comment = ({ morePosts, post, preview = null }) => {
 
 export default Comment;
 
-export async function getStaticPaths() {
-  const allTerms = await getAllProductSlugs();
-  return {
-    fallback: true,
-    paths:    allTerms.products.map((term) => `/${term.slug}`) || [],
-  };
-}
+// export async function getStaticPaths() {
+//   const allTerms = await getAllProductSlugs();
+//   return {
+//     fallback: true,
+//     paths:    allTerms.products.map((term) => `/${term.slug}`) || [],
+//   };
+// }
 
-export async function getStaticProps({ params, preview = null }) {
+export async function getServerSideProps({ params, preview = null }) {
   const data = await getAProduct(params.product, preview);
   // console.log('data', data);
 

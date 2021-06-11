@@ -1,5 +1,5 @@
 // Base
-export { default as fetchAPI } from '@/lib/cms/graphapi/fetchAPI';
+export { default as fetchAPI } from '@/lib/cms/graphapi/fetchGQL';
 
 // Content
 export { getACollection } from '@/lib/cms/graphapi/collection/getACollection';

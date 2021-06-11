@@ -3,10 +3,11 @@ import React from 'react';
 import {
   CssBaseline,
 } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
-import Head from 'next/head';
 import Router from 'next/router';
 
+import Footer from '@/components/shared/Footer';
 import Header from '@/components/shared/Header';
 import theme from '@/lib/mui/theme';
 
@@ -15,22 +16,42 @@ Router.events.on('routeChangeComplete', (url) => {
   window.analytics.page(url);
 });
 
-const Layout = ({ children }) => (
-  <>
-    <Head>
-      <title>Next.js with Auth0</title>
-    </Head>
+const useStyles = makeStyles((theme) => ({
+  body: {
+    display:       'flex',
+    flexDirection: 'column',
+    height:        '100%',
+  },
+  main: {
+    flexGrow: 1,
+    // flexShrink: 0
+  },
+  paper: {
+    color:     'white',
+    padding:   theme.spacing(2),
+    textAlign: 'center',
+  },
+}));
 
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+const Layout = ({ children }) => {
+  const classes = useStyles();
 
-      <Header />
+  return (
+    <>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className={classes.body}>
+          <Header />
 
-      <main>
-        <div className="container">{children}</div>
-      </main>
-    </ThemeProvider>
-  </>
-);
+          <main className={classes.main}>
+            <div className="container">{children}</div>
+          </main>
+
+          <Footer />
+        </div>
+      </ThemeProvider>
+    </>
+  );
+};
 
 export default Layout;

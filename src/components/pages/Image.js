@@ -2,7 +2,7 @@ import React from 'react';
 
 import Image from 'next/image';
 
-import { getStrapiMedia } from '@/lib/cms/media';
+import { getStrapiMedia } from '@/lib/cms/rest/media';
 
 const ImageWrapper = ({ image, style }) => {
   const imageUrl = getStrapiMedia(image);

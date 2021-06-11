@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 
-import { UserProvider } from '@auth0/nextjs-auth0';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 
@@ -25,9 +24,9 @@ const MyApp = ({ Component, pageProps }) => {
         <meta content="minimum-scale=1, initial-scale=1, width=device-width" name="viewport" />
       </Head>
 
-      <UserProvider user={user}>
+      <>
         <Component {...pageProps} />
-      </UserProvider>
+      </>
     </>
   );
 };

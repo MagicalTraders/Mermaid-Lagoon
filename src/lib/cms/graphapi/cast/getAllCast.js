@@ -9,6 +9,7 @@ export async function getAllCast(preview) {
         casts(sort: "name:asc", limit: 1000, where: $where, start:${startAt}) {
           name
           slug
+          studio
         }
       }
     `;
@@ -24,7 +25,7 @@ export async function getAllCast(preview) {
   let combinedData = [];
   for await (const num of [0, 100, 200, 300, 400, 500]) {
     const data = await fetchAPI(gqlQuery(num), gqlQueryParams);
-    console.log('cast query', data);
+    // console.log('cast query', data);
 
     combinedData = [...combinedData, ...data?.casts];
   }

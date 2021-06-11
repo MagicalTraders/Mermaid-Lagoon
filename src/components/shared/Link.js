@@ -21,12 +21,12 @@ NextComposed.propTypes = {
   as:   PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   href: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
     .isRequired,
-  prefetch: PropTypes.bool,
+  // prefetch: PropTypes.bool,
 };
 
 NextComposed.defaultProps = {
-  as:       null,
-  prefetch: true,
+  as: null,
+  // prefetch: false,
 };
 
 // A styled version of the Next.js Link component:
@@ -78,7 +78,7 @@ Link.propTypes = {
   innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   naked:    PropTypes.bool,
   onClick:  PropTypes.func,
-  prefetch: PropTypes.bool,
+  // prefetch: PropTypes.bool,
 };
 
 Link.defaultProps = {
@@ -88,7 +88,7 @@ Link.defaultProps = {
   innerRef:        null,
   naked:           false,
   onClick:         null,
-  prefetch:        true,
+  // prefetch:        false,
 };
 
 export default forwardRef((props, ref) => (

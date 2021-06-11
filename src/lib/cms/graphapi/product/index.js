@@ -1,5 +1,5 @@
 // Base
-export { default as fetchAPI } from '@/lib/cms/graphapi/fetchAPI';
+export { default as fetchAPI } from '@/lib/cms/graphapi/fetchGQL';
 
 // Content
 export { getAProduct } from '@/lib/cms/graphapi/product/getAProduct';

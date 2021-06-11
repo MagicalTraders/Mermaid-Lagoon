@@ -1,1 +1,1 @@
-export { default as fetchAPI } from '@/lib/cms/graphapi/fetchAPI';
+export { default as fetchAPI } from '@/lib/cms/graphapi/fetchGQL';

@@ -31,7 +31,7 @@ export default function Post({ morePosts, post, preview = null }) {
               Cast
             </Grid>
             {post.cast.map((term, i) => (
-              <Grid xs={1} item>
+              <Grid xs={1} item key={i}>
                 <Link href={`/cast/${term.slug}`} key={i}>{term.name}</Link>
               </Grid>
             ))}

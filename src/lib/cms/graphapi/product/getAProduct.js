@@ -58,5 +58,7 @@ export async function getAProduct(slug, preview) {
   };
 
   const data = await fetchAPI(gqlQuery, gqlQueryParams);
+  console.log(`getAProduct ${slug}`, data);
+
   return data;
 }

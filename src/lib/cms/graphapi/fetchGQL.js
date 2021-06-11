@@ -1,12 +1,12 @@
 export default async function fetchAPI(query, { variables } = {}) {
-  const res = await fetch('http://localhost:1337/graphql', {
+  const fetchURL = `${process.env.maroonersRockBase}/graphql`;
+  const res = await fetch(fetchURL, {
     body: JSON.stringify({
       query,
       variables,
     }),
     headers: {
-      Accept:         'application/json',
-      // Authorization: `Bearer ${process.env.maroonersRockToken}`,
+      Authorization:  `Bearer ${process.env.maroonersRockJWT}`,
       'Content-Type': 'application/json',
     },
     method: 'POST',
