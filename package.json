@@ -18,7 +18,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@auth0/nextjs-auth0": "^0.16.1",
+    "@auth0/nextjs-auth0": "^1.0.0",
     "bootstrap": "^4.6.0",
     "dotenv": "^8.2.0",
     "isomorphic-unfetch": "^3.1.0",
@@ -29,7 +29,7 @@
     "react-feather": "^2.0.9",
     "react-structured-data": "^0.0.14",
     "reactstrap": "^8.9.0",
-    "snyk": "^1.440.1"
+    "snyk": "^1.685.0"
   },
   "devDependencies": {
     "@storybook/addon-actions": "6.1.15",
